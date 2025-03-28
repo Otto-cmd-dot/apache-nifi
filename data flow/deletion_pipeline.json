@@ -1,0 +1,83 @@
+{
+    "processors": [
+      {
+        "name": "ExecuteSQL",
+        "type": "org.apache.nifi.processors.standard.ExecuteSQL",
+        "properties": {
+          "SQL Select Query": "SELECT id FROM staging_table WHERE created_at < NOW() - INTERVAL '7 days';",
+          "Database Connection Pooling Service": "dbcp-connection-pool"
+        },
+        "success": "ConvertAvroToCSV"
+      },
+      {
+        "name": "ConvertAvroToCSV",
+        "type": "org.apache.nifi.processors.standard.ConvertAvroToCSV",
+        "properties": {},
+        "success": "PutFile"
+      },
+      {
+        "name": "PutFile",
+        "type": "org.apache.nifi.processors.standard.PutFile",
+        "properties": {
+          "Directory": "/path/to/archive/",
+          "Filename": "deleted_ids_${now():format('yyyy-MM-dd')}.csv"
+        },
+        "success": "Notify"
+      },
+      {
+        "name": "Notify",
+        "type": "org.apache.nifi.processors.standard.Notify",
+        "properties": {
+          "Release Signal Identifier": "${now():format('yyyy-MM-dd')}"
+        },
+        "success": "Terminate"
+      },
+      {
+        "name": "Wait",
+        "type": "org.apache.nifi.processors.standard.Wait",
+        "properties": {
+          "Release Signal Identifier": "${now():format('yyyy-MM-dd')}",
+          "Distributed Cache Service": "distributed-map-cache-client",
+          "Expiration Duration": "10 min"
+        },
+        "success": "PutSQL"
+      },
+      {
+        "name": "PutSQL",
+        "type": "org.apache.nifi.processors.standard.PutSQL",
+        "properties": {
+          "SQL Statement": "DELETE FROM staging_table WHERE created_at < NOW() - INTERVAL '7 days';",
+          "Database Connection Pooling Service": "dbcp-connection-pool"
+        },
+        "success": "Terminate"
+      }
+    ],
+    "connections": [
+      {"from": "ExecuteSQL", "to": "ConvertAvroToCSV"},
+      {"from": "ConvertAvroToCSV", "to": "PutFile"},
+      {"from": "PutFile", "to": "Notify"},
+      {"from": "Notify", "to": "Terminate"},
+      {"from": "Wait", "to": "PutSQL"},
+      {"from": "PutSQL", "to": "Terminate"}
+    ],
+    "controllerServices": [
+      {
+        "name": "dbcp-connection-pool",
+        "type": "org.apache.nifi.dbcp.DBCPConnectionPool",
+        "properties": {
+          "Database Connection URL": "jdbc:your_database_url",
+          "Database Driver Class Name": "org.postgresql.Driver",
+          "Database User": "your_user",
+          "Password": "your_password"
+        }
+      },
+      {
+        "name": "distributed-map-cache-client",
+        "type": "org.apache.nifi.controller.DistributedMapCacheClientService",
+        "properties": {
+          "Distributed Cache Server": "your_cache_server"
+        }
+      }
+    ]
+  }
+  
