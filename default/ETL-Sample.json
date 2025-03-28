@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1743124259446,
+    "description" : "This is the first testing with Github.",
+    "identifier" : "ETL-Sample",
+    "lastModifiedTimestamp" : 1743124259446,
+    "name" : "ETL Sample",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
