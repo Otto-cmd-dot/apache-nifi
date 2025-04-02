@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1743575620515,
+    "description" : "This pipeline is responsible for moving sales order data from source to data staging area.",
+    "identifier" : "Source2StgSalesOrderPipeline",
+    "lastModifiedTimestamp" : 1743575620515,
+    "name" : "Source2StgSalesOrderPipeline",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
