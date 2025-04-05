@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1743866232066,
+    "description" : "",
+    "identifier" : "AccountPaymentTermFlow",
+    "lastModifiedTimestamp" : 1743866232066,
+    "name" : "AccountPaymentTermFlow",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
