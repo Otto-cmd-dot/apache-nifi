@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1743871934005,
+    "description" : "",
+    "identifier" : "ProductPricelistFlow",
+    "lastModifiedTimestamp" : 1743871934005,
+    "name" : "ProductPricelistFlow",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
