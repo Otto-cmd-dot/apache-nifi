@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1743842879111,
+    "description" : "",
+    "identifier" : "SalesOrderFlow",
+    "lastModifiedTimestamp" : 1743842879111,
+    "name" : "SalesOrderFlow",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
