@@ -1,8 +1,8 @@
 {
   "externalControllerServices" : {
-    "fd72a04e-18a9-3680-b98b-758490688ace" : {
-      "identifier" : "fd72a04e-18a9-3680-b98b-758490688ace",
-      "name" : "DBCPConnectionPoolStaging"
+    "d2279917-1d06-36c9-b343-a1942c048f13" : {
+      "identifier" : "d2279917-1d06-36c9-b343-a1942c048f13",
+      "name" : "DBCPConnectionPoolDSA"
     },
     "0efd71d7-fa63-3a7f-824c-bdc444c9fdac" : {
       "identifier" : "0efd71d7-fa63-3a7f-824c-bdc444c9fdac",
@@ -266,9 +266,9 @@
     "defaultFlowFileExpiration" : "0 sec",
     "executionEngine" : "INHERITED",
     "externalControllerServiceReferences" : {
-      "fd72a04e-18a9-3680-b98b-758490688ace" : {
-        "identifier" : "fd72a04e-18a9-3680-b98b-758490688ace",
-        "name" : "DBCPConnectionPoolStaging"
+      "d2279917-1d06-36c9-b343-a1942c048f13" : {
+        "identifier" : "d2279917-1d06-36c9-b343-a1942c048f13",
+        "name" : "DBCPConnectionPoolDSA"
       },
       "0efd71d7-fa63-3a7f-824c-bdc444c9fdac" : {
         "identifier" : "0efd71d7-fa63-3a7f-824c-bdc444c9fdac",
@@ -394,13 +394,13 @@
         "table-schema-cache-size" : "100",
         "put-db-record-quoted-table-identifiers" : "false",
         "put-db-record-translate-field-names" : "true",
-        "put-db-record-dcbp-service" : "fd72a04e-18a9-3680-b98b-758490688ace",
+        "put-db-record-dcbp-service" : "d2279917-1d06-36c9-b343-a1942c048f13",
         "put-db-record-query-timeout" : "0 seconds",
         "Column Name Translation Strategy" : "REMOVE_UNDERSCORE",
         "rollback-on-failure" : "false",
         "put-db-record-binary-format" : "UTF-8",
         "db-type" : "PostgreSQL",
-        "put-db-record-table-name" : "stg_sale_order_line",
+        "put-db-record-table-name" : "stg_sales_order_line",
         "put-db-record-record-reader" : "eab1d3cd-7aa9-3c62-a860-7e1cfe401858"
       },
       "propertyDescriptors" : {
