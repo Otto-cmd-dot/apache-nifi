@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1743873552753,
+    "description" : "",
+    "identifier" : "ProductItemTypeFlow",
+    "lastModifiedTimestamp" : 1743873552753,
+    "name" : "ProductItemTypeFlow",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
