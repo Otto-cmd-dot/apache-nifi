@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1743861886868,
+    "description" : "",
+    "identifier" : "SaleOrderLinePipeline",
+    "lastModifiedTimestamp" : 1743861886868,
+    "name" : "SaleOrderLinePipeline",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
