@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1744883505045,
+    "description" : "",
+    "identifier" : "ResCompanyBranchFlow",
+    "lastModifiedTimestamp" : 1744883505045,
+    "name" : "ResCompanyBranchFlow",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
