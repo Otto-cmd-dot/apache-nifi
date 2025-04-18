@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1744957872998,
+    "description" : "",
+    "identifier" : "ResCurrencyFlow",
+    "lastModifiedTimestamp" : 1744957872998,
+    "name" : "ResCurrencyFlow",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
