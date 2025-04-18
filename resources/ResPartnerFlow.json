@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1744962021676,
+    "description" : "",
+    "identifier" : "ResPartnerFlow",
+    "lastModifiedTimestamp" : 1744962021676,
+    "name" : "ResPartnerFlow",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
