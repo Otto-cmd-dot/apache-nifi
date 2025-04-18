@@ -1,0 +1,64 @@
+{
+  "flow_name": "Postgres_Manual_Upsert_JsonFlow",
+  "description": "Manual UPSERT using UpdateAttribute and PutSQL from JSON source",
+  "processors": [
+    {
+      "name": "GenerateFlowFile",
+      "type": "org.apache.nifi.processors.standard.GenerateFlowFile",
+      "config": {
+        "customText": "{\"id\": \"123e4567-e89b-12d3-a456-426614174000\", \"name\": \"Alice Smith\", \"email\": \"alice@example.com\"}",
+        "dataFormat": "text"
+      }
+    },
+    {
+      "name": "ConvertRecord",
+      "type": "org.apache.nifi.processors.standard.ConvertRecord",
+      "config": {
+        "recordReader": "JsonTreeReader",
+        "recordWriter": "AvroRecordSetWriter"
+      }
+    },
+    {
+      "name": "UpdateAttribute",
+      "type": "org.apache.nifi.processors.attributes.UpdateAttribute",
+      "config": {
+        "sql.upsert.query": "INSERT INTO customer_data (id, name, email) VALUES ('${id}', '${name}', '${email}') ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, email = EXCLUDED.email, last_updated = NOW();"
+      }
+    },
+    {
+      "name": "PutSQL",
+      "type": "org.apache.nifi.processors.standard.PutSQL",
+      "config": {
+        "sqlStatement": "${sql.upsert.query}",
+        "dbcpService": "PostgresDBCPConnectionPool"
+      }
+    },
+    {
+      "name": "LogAttribute",
+      "type": "org.apache.nifi.processors.standard.LogAttribute",
+      "config": {}
+    }
+  ],
+  "controller_services": [
+    {
+      "name": "PostgresDBCPConnectionPool",
+      "type": "org.apache.nifi.dbcp.DBCPConnectionPool",
+      "config": {
+        "Database Connection URL": "jdbc:postgresql://localhost:5432/your_db",
+        "Database Driver Class Name": "org.postgresql.Driver",
+        "Database User": "your_user",
+        "Password": "your_password"
+      }
+    },
+    {
+      "name": "JsonTreeReader",
+      "type": "org.apache.nifi.json.JsonTreeReader",
+      "config": {}
+    },
+    {
+      "name": "AvroRecordSetWriter",
+      "type": "org.apache.nifi.avro.AvroRecordSetWriter",
+      "config": {}
+    }
+  ]
+}
