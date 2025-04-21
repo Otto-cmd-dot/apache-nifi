@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1745207013884,
+    "description" : "",
+    "identifier" : "ResourceCommuneFlow",
+    "lastModifiedTimestamp" : 1745207013884,
+    "name" : "ResourceCommuneFlow",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
