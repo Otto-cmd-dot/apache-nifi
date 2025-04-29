@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1745917333067,
+    "description" : "",
+    "identifier" : "ExtractionPhaseFromSource2Stg",
+    "lastModifiedTimestamp" : 1745917333067,
+    "name" : "ExtractionPhaseFromSource2Stg",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
