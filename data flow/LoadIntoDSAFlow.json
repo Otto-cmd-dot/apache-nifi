@@ -3,10 +3,6 @@
     "ef4bae82-3469-31ea-a04a-c76e19a383ce" : {
       "identifier" : "ef4bae82-3469-31ea-a04a-c76e19a383ce",
       "name" : "DSADBCPConnectionPool"
-    },
-    "fd72a04e-18a9-3680-b98b-758490688ace" : {
-      "identifier" : "fd72a04e-18a9-3680-b98b-758490688ace",
-      "name" : "DBCPConnectionPoolStaging"
     }
   },
   "flow" : {
@@ -26,14 +22,15 @@
       "bends" : [ ],
       "componentType" : "CONNECTION",
       "destination" : {
+        "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "160e11ba-d317-3353-8c20-629ef592675e",
-        "name" : "Out-Error",
-        "type" : "OUTPUT_PORT"
+        "id" : "4a36e197-2065-3bb6-854f-c9249671522c",
+        "name" : "RetryFlowFile",
+        "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "19a6b98c-5b54-3153-a52a-21129e83b9f6",
+      "identifier" : "595dc0ca-106f-37f1-89e3-e0269aa17fea",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -44,38 +41,8 @@
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "7bb6b57a-0196-1000-6341-fb385bf9e1ba",
-        "name" : "CheckIfIdExistOrNot",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "aedefa6e-0196-1000-4663-4f79b8fb9f65",
-        "name" : "CastDateInHrEmployee",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "f2a1310b-1ed6-399e-ab91-bc30ff6b442c",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "hr_employee" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "41da3d3f-794a-37eb-8d24-dc2e0a867ae1",
-        "name" : "RouteOnAttribute",
+        "id" : "7bb6b57c-0196-1000-2825-2f839422ea1f",
+        "name" : "InsertData",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -113,23 +80,20 @@
       "backPressureDataSizeThreshold" : "1 GB",
       "backPressureObjectThreshold" : 10000,
       "bends" : [ {
-        "x" : 949.0,
-        "y" : 591.0
-      }, {
-        "x" : 949.0,
-        "y" : 641.0
+        "x" : -514.0,
+        "y" : 756.0
       } ],
       "componentType" : "CONNECTION",
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "7bb6b57b-0196-1000-739b-5c33da05dc81",
-        "name" : "UpdateData",
+        "id" : "7bb6b57c-0196-1000-2825-2f839422ea1f",
+        "name" : "InsertData",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "aa272beb-9e0f-396f-b60f-42445b7f413f",
+      "identifier" : "c737f8c5-5850-3373-8895-4d1d6ebce59c",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -140,6 +104,124 @@
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "4a36e197-2065-3bb6-854f-c9249671522c",
+        "name" : "RetryFlowFile",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "groupId" : "flow-contents-group",
+        "id" : "160e11ba-d317-3353-8c20-629ef592675e",
+        "name" : "Out-Alert",
+        "type" : "OUTPUT_PORT"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "74fa4c93-c108-30fb-8959-996ab287c7bd",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "76cfb457-7f92-37eb-9206-953962678d36",
+        "name" : "Funnel",
+        "type" : "FUNNEL"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "76cfb457-7f92-37eb-9206-953962678d36",
+        "name" : "Funnel",
+        "type" : "FUNNEL"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "1645aa08-334f-35c4-8225-601400835eeb",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "retries_exceeded" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "4a36e197-2065-3bb6-854f-c9249671522c",
+        "name" : "RetryFlowFile",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "7bb6b57a-0196-1000-6341-fb385bf9e1ba",
+        "name" : "CheckIfIdExistOrNot",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "1fd4d46a-eefe-3abd-bcf0-aa600b7b3a0f",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "" ],
+      "source" : {
+        "groupId" : "flow-contents-group",
+        "id" : "f876c8aa-7344-3831-b06d-f80010b1939b",
+        "name" : "In-Load-Data-Staging",
+        "type" : "INPUT_PORT"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "b0eb3f20-0196-1000-2bc7-3fabf5b2b885",
+        "name" : "RetryFlowFile",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "8550590d-55b7-3cfa-8a7f-628757f3e0b5",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "7bb6b57b-0196-1000-739b-5c33da05dc81",
         "name" : "UpdateData",
         "type" : "PROCESSOR"
@@ -148,156 +230,33 @@
     }, {
       "backPressureDataSizeThreshold" : "1 GB",
       "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "7bb6b57a-0196-1000-6341-fb385bf9e1ba",
-        "name" : "CheckIfIdExistOrNot",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "fffe8c9b-fc52-3870-801c-755f4d3b9625",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "aedefa6e-0196-1000-4663-4f79b8fb9f65",
-        "name" : "CastDateInHrEmployee",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "e3325a24-87de-3c80-80ea-087e96a252cc",
-        "name" : "CastDateInSaleOrder",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "b8299427-a4ab-3928-8c2a-4fa24473f7cb",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "sale_order" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "41da3d3f-794a-37eb-8d24-dc2e0a867ae1",
-        "name" : "RouteOnAttribute",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
       "bends" : [ {
-        "x" : 152.0,
-        "y" : 56.0
+        "x" : 880.0,
+        "y" : 752.0
       } ],
       "componentType" : "CONNECTION",
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "7bb6b57a-0196-1000-6341-fb385bf9e1ba",
-        "name" : "CheckIfIdExistOrNot",
+        "id" : "7bb6b57b-0196-1000-739b-5c33da05dc81",
+        "name" : "UpdateData",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "f1400be3-e055-323b-a693-06b0aa2a835b",
+      "identifier" : "c48615c2-5523-3731-aea4-f64f8397ed50",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
+      "selectedRelationships" : [ "retry" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "aedd443a-0196-1000-24c4-69276fc1601c",
-        "name" : "CastDateInResPartner",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "aedd443a-0196-1000-24c4-69276fc1601c",
-        "name" : "CastDateInResPartner",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "95f38885-81f3-3d26-a311-0ebd1aedbd46",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "res_partner" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "41da3d3f-794a-37eb-8d24-dc2e0a867ae1",
-        "name" : "RouteOnAttribute",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ {
-        "x" : 344.0,
-        "y" : -96.0
-      } ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "7bb6b57a-0196-1000-6341-fb385bf9e1ba",
-        "name" : "CheckIfIdExistOrNot",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "b8862dab-4ee1-3425-b62a-f5cbe5bc7ba1",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "unmatched" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "41da3d3f-794a-37eb-8d24-dc2e0a867ae1",
-        "name" : "RouteOnAttribute",
+        "id" : "b0eb3f20-0196-1000-2bc7-3fabf5b2b885",
+        "name" : "RetryFlowFile",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -339,25 +298,26 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "41da3d3f-794a-37eb-8d24-dc2e0a867ae1",
-        "name" : "RouteOnAttribute",
-        "type" : "PROCESSOR"
+        "id" : "76cfb457-7f92-37eb-9206-953962678d36",
+        "name" : "Funnel",
+        "type" : "FUNNEL"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "a02ae575-883e-3ab0-97e4-70c62866c450",
+      "identifier" : "11a16793-7b7c-32e3-a39c-ab6b88b24fb1",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "" ],
+      "selectedRelationships" : [ "retries_exceeded" ],
       "source" : {
+        "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "f876c8aa-7344-3831-b06d-f80010b1939b",
-        "name" : "In-Load-Data-Staging",
-        "type" : "INPUT_PORT"
+        "id" : "b0eb3f20-0196-1000-2bc7-3fabf5b2b885",
+        "name" : "RetryFlowFile",
+        "type" : "PROCESSOR"
       },
       "zIndex" : 0
     }, {
@@ -368,25 +328,25 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "7bb6b57a-0196-1000-6341-fb385bf9e1ba",
-        "name" : "CheckIfIdExistOrNot",
-        "type" : "PROCESSOR"
+        "id" : "76cfb457-7f92-37eb-9206-953962678d36",
+        "name" : "Funnel",
+        "type" : "FUNNEL"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "13a321b7-4afc-396c-b0d0-2c00735bb83b",
+      "identifier" : "7077f5d7-d453-3552-bcaf-07ed2e5812e6",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
+      "selectedRelationships" : [ "failure" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "e3325a24-87de-3c80-80ea-087e96a252cc",
-        "name" : "CastDateInSaleOrder",
+        "id" : "7bb6b57a-0196-1000-6341-fb385bf9e1ba",
+        "name" : "CheckIfIdExistOrNot",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -591,7 +551,7 @@
       "identifier" : "4683d6a5-eed4-3aef-9a3e-f154a13711eb",
       "name" : "SimpleDatabaseLookupService",
       "properties" : {
-        "dbrecord-lookup-dbcp-service" : "fd72a04e-18a9-3680-b98b-758490688ace",
+        "dbrecord-lookup-dbcp-service" : "ef4bae82-3469-31ea-a04a-c76e19a383ce",
         "dbrecord-lookup-clear-cache-on-enabled" : "true",
         "lookup-value-column" : "id",
         "dbrecord-lookup-cache-size" : "0",
@@ -808,15 +768,19 @@
       "ef4bae82-3469-31ea-a04a-c76e19a383ce" : {
         "identifier" : "ef4bae82-3469-31ea-a04a-c76e19a383ce",
         "name" : "DSADBCPConnectionPool"
-      },
-      "fd72a04e-18a9-3680-b98b-758490688ace" : {
-        "identifier" : "fd72a04e-18a9-3680-b98b-758490688ace",
-        "name" : "DBCPConnectionPoolStaging"
       }
     },
     "flowFileConcurrency" : "UNBOUNDED",
     "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
-    "funnels" : [ ],
+    "funnels" : [ {
+      "componentType" : "FUNNEL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "76cfb457-7f92-37eb-9206-953962678d36",
+      "position" : {
+        "x" : 196.17812365278337,
+        "y" : 1138.4545776760897
+      }
+    } ],
     "identifier" : "flow-contents-group",
     "inputPorts" : [ {
       "allowRemoteAccess" : false,
@@ -828,7 +792,7 @@
       "portFunction" : "STANDARD",
       "position" : {
         "x" : 120.0,
-        "y" : -520.0
+        "y" : -40.0
       },
       "scheduledState" : "ENABLED",
       "type" : "INPUT_PORT"
@@ -842,11 +806,11 @@
       "concurrentlySchedulableTaskCount" : 1,
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "160e11ba-d317-3353-8c20-629ef592675e",
-      "name" : "Out-Error",
+      "name" : "Out-Alert",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : 1040.0,
-        "y" : 232.0
+        "x" : 96.0,
+        "y" : 1304.0
       },
       "scheduledState" : "ENABLED",
       "type" : "OUTPUT_PORT"
@@ -858,7 +822,7 @@
     },
     "processGroups" : [ ],
     "processors" : [ {
-      "autoTerminatedRelationships" : [ "success", "failure", "retry" ],
+      "autoTerminatedRelationships" : [ "success", "retry" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -1214,141 +1178,7 @@
       "type" : "org.apache.nifi.processors.standard.LookupRecord",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "failure" ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.2.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "aedefa6e-0196-1000-4663-4f79b8fb9f65",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "CastDateInHrEmployee",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : 536.0,
-        "y" : -184.0
-      },
-      "properties" : {
-        "Record Writer" : "a7a78536-4d2b-3261-b11c-65a7ebdaff90",
-        "Record Reader" : "f0c5fa48-793a-389e-89fa-25a55bbb6a11",
-        "/working_date" : "${working_date:toDate('yyyy-MM-dd')}",
-        "Replacement Value Strategy" : "literal-value"
-      },
-      "propertyDescriptors" : {
-        "Record Writer" : {
-          "displayName" : "Record Writer",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "Record Writer",
-          "sensitive" : false
-        },
-        "Record Reader" : {
-          "displayName" : "Record Reader",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "Record Reader",
-          "sensitive" : false
-        },
-        "/working_date" : {
-          "displayName" : "/working_date",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/working_date",
-          "sensitive" : false
-        },
-        "Replacement Value Strategy" : {
-          "displayName" : "Replacement Value Strategy",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Replacement Value Strategy",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 0,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.UpdateRecord",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.2.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "41da3d3f-794a-37eb-8d24-dc2e0a867ae1",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "RouteOnAttribute",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : 56.0,
-        "y" : -408.0
-      },
-      "properties" : {
-        "res_partner" : "${table_name:equals('res_partner')}",
-        "Routing Strategy" : "Route to Property name",
-        "hr_employee" : "${table_name:equals('hr_employee')}",
-        "sale_order" : "${table_name:equals('sale_order')}"
-      },
-      "propertyDescriptors" : {
-        "res_partner" : {
-          "displayName" : "res_partner",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "res_partner",
-          "sensitive" : false
-        },
-        "Routing Strategy" : {
-          "displayName" : "Routing Strategy",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Routing Strategy",
-          "sensitive" : false
-        },
-        "hr_employee" : {
-          "displayName" : "hr_employee",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "hr_employee",
-          "sensitive" : false
-        },
-        "sale_order" : {
-          "displayName" : "sale_order",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "sale_order",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 25,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.RouteOnAttribute",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ "success", "failure" ],
+      "autoTerminatedRelationships" : [ "success", "retry" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -1366,8 +1196,8 @@
       "name" : "UpdateData",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 480.0,
-        "y" : 552.0
+        "x" : 440.0,
+        "y" : 536.0
       },
       "properties" : {
         "put-db-record-allow-multiple-statements" : "false",
@@ -1590,7 +1420,7 @@
       "type" : "org.apache.nifi.processors.standard.PutDatabaseRecord",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "failure" ],
+      "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -1603,63 +1433,55 @@
       "concurrentlySchedulableTaskCount" : 1,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "e3325a24-87de-3c80-80ea-087e96a252cc",
+      "identifier" : "4a36e197-2065-3bb6-854f-c9249671522c",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "CastDateInSaleOrder",
+      "name" : "RetryFlowFile",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -632.0,
-        "y" : -192.0
+        "x" : -320.0,
+        "y" : 816.0
       },
       "properties" : {
-        "/last_date_invoice" : "${last_date_invoice:toDate('yyyy-MM-dd')}",
-        "/commitment_date" : "${commitment_date:toDate('yyyy-MM-dd')}",
-        "Record Writer" : "a7a78536-4d2b-3261-b11c-65a7ebdaff90",
-        "/validity_date" : "${validity_date:toDate('yyyy-MM-dd')}",
-        "Record Reader" : "f0c5fa48-793a-389e-89fa-25a55bbb6a11",
-        "Replacement Value Strategy" : "literal-value"
+        "penalize-retries" : "true",
+        "maximum-retries" : "3",
+        "Fail on Non-numerical Overwrite" : "false",
+        "reuse-mode" : "fail",
+        "retry-attribute" : "flowfile.retries"
       },
       "propertyDescriptors" : {
-        "/last_date_invoice" : {
-          "displayName" : "/last_date_invoice",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/last_date_invoice",
-          "sensitive" : false
-        },
-        "/commitment_date" : {
-          "displayName" : "/commitment_date",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/commitment_date",
-          "sensitive" : false
-        },
-        "Record Writer" : {
-          "displayName" : "Record Writer",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "Record Writer",
-          "sensitive" : false
-        },
-        "/validity_date" : {
-          "displayName" : "/validity_date",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/validity_date",
-          "sensitive" : false
-        },
-        "Record Reader" : {
-          "displayName" : "Record Reader",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "Record Reader",
-          "sensitive" : false
-        },
-        "Replacement Value Strategy" : {
-          "displayName" : "Replacement Value Strategy",
+        "penalize-retries" : {
+          "displayName" : "Penalize Retries",
           "dynamic" : false,
           "identifiesControllerService" : false,
-          "name" : "Replacement Value Strategy",
+          "name" : "penalize-retries",
+          "sensitive" : false
+        },
+        "maximum-retries" : {
+          "displayName" : "Maximum Retries",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "maximum-retries",
+          "sensitive" : false
+        },
+        "Fail on Non-numerical Overwrite" : {
+          "displayName" : "Fail on Non-numerical Overwrite",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Fail on Non-numerical Overwrite",
+          "sensitive" : false
+        },
+        "reuse-mode" : {
+          "displayName" : "Reuse Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "reuse-mode",
+          "sensitive" : false
+        },
+        "retry-attribute" : {
+          "displayName" : "Retry Attribute",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "retry-attribute",
           "sensitive" : false
         }
       },
@@ -1670,10 +1492,10 @@
       "schedulingPeriod" : "0 sec",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
-      "type" : "org.apache.nifi.processors.standard.UpdateRecord",
+      "type" : "org.apache.nifi.processors.standard.RetryFlowFile",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "failure" ],
+      "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -1686,47 +1508,55 @@
       "concurrentlySchedulableTaskCount" : 1,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "aedd443a-0196-1000-24c4-69276fc1601c",
+      "identifier" : "b0eb3f20-0196-1000-2bc7-3fabf5b2b885",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "CastDateInResPartner",
+      "name" : "RetryFlowFile",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -200.0,
-        "y" : -184.0
+        "x" : 440.0,
+        "y" : 840.0
       },
       "properties" : {
-        "Record Writer" : "a7a78536-4d2b-3261-b11c-65a7ebdaff90",
-        "Record Reader" : "f0c5fa48-793a-389e-89fa-25a55bbb6a11",
-        "/dob" : "${dob:toDate('yyyy-MM-dd')}",
-        "Replacement Value Strategy" : "literal-value"
+        "penalize-retries" : "true",
+        "maximum-retries" : "3",
+        "Fail on Non-numerical Overwrite" : "false",
+        "reuse-mode" : "fail",
+        "retry-attribute" : "flowfile.retries"
       },
       "propertyDescriptors" : {
-        "Record Writer" : {
-          "displayName" : "Record Writer",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "Record Writer",
-          "sensitive" : false
-        },
-        "Record Reader" : {
-          "displayName" : "Record Reader",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "Record Reader",
-          "sensitive" : false
-        },
-        "/dob" : {
-          "displayName" : "/dob",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/dob",
-          "sensitive" : false
-        },
-        "Replacement Value Strategy" : {
-          "displayName" : "Replacement Value Strategy",
+        "penalize-retries" : {
+          "displayName" : "Penalize Retries",
           "dynamic" : false,
           "identifiesControllerService" : false,
-          "name" : "Replacement Value Strategy",
+          "name" : "penalize-retries",
+          "sensitive" : false
+        },
+        "maximum-retries" : {
+          "displayName" : "Maximum Retries",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "maximum-retries",
+          "sensitive" : false
+        },
+        "Fail on Non-numerical Overwrite" : {
+          "displayName" : "Fail on Non-numerical Overwrite",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Fail on Non-numerical Overwrite",
+          "sensitive" : false
+        },
+        "reuse-mode" : {
+          "displayName" : "Reuse Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "reuse-mode",
+          "sensitive" : false
+        },
+        "retry-attribute" : {
+          "displayName" : "Retry Attribute",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "retry-attribute",
           "sensitive" : false
         }
       },
@@ -1737,7 +1567,7 @@
       "schedulingPeriod" : "0 sec",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
-      "type" : "org.apache.nifi.processors.standard.UpdateRecord",
+      "type" : "org.apache.nifi.processors.standard.RetryFlowFile",
       "yieldDuration" : "1 sec"
     } ],
     "remoteProcessGroups" : [ ],
@@ -1759,10 +1589,64 @@
         "value" : "${db.table.name:in(\"sale_order\", \"sale_order_line\")}"
       }, {
         "description" : "",
+        "name" : "coupon_program_start_date",
+        "provided" : false,
+        "sensitive" : false,
+        "value" : "2024-12-24 07:36:11.684"
+      }, {
+        "description" : "",
+        "name" : "customer_start_date",
+        "provided" : false,
+        "sensitive" : false,
+        "value" : "2025-01-02 02:46:16.814"
+      }, {
+        "description" : "",
+        "name" : "Database Username",
+        "provided" : false,
+        "sensitive" : false,
+        "value" : "gpadmin"
+      }, {
+        "description" : "",
+        "name" : "coupon_program_end_date",
+        "provided" : false,
+        "sensitive" : false,
+        "value" : "2025-04-23 04:31:28.158"
+      }, {
+        "description" : "",
+        "name" : "Database Password",
+        "provided" : false,
+        "sensitive" : false,
+        "value" : "8809"
+      }, {
+        "description" : "",
+        "name" : "Database URL",
+        "provided" : false,
+        "sensitive" : false,
+        "value" : "jdbc:postgresql://100.125.44.117:5432/warehouse_poc"
+      }, {
+        "description" : "",
         "name" : "Required Tables From ListDatabaseTables",
         "provided" : false,
         "sensitive" : false,
         "value" : "${db.table.name:matches('^(sale_order|res_company_branch|res_currency|res_partner|res_partner_title|res_country|resource_province|resource_district|resource_commune|resource_village)$')}\n"
+      }, {
+        "description" : "",
+        "name" : "sale_rep_start_date",
+        "provided" : false,
+        "sensitive" : false,
+        "value" : "2025-01-10 09:24:24.683"
+      }, {
+        "description" : "",
+        "name" : "customer_end_date",
+        "provided" : false,
+        "sensitive" : false,
+        "value" : "2025-05-13 02:59:47.486"
+      }, {
+        "description" : "",
+        "name" : "sale_rep_end_date",
+        "provided" : false,
+        "sensitive" : false,
+        "value" : "2025-05-13 04:49:03.492"
       }, {
         "description" : "",
         "name" : "resource-related-tables",
