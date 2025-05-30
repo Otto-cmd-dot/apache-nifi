@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1748570316286,
+    "description" : "this flow is used to load the transformed data for incremental load pipeline.",
+    "identifier" : "Loading-Flow",
+    "lastModifiedTimestamp" : 1748570316286,
+    "name" : "Loading Flow",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
