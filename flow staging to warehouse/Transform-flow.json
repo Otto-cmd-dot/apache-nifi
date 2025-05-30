@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1748569500701,
+    "description" : "this flow is used to transform data for dimensions and facts.",
+    "identifier" : "Transform-flow",
+    "lastModifiedTimestamp" : 1748569500701,
+    "name" : "Transform flow",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
