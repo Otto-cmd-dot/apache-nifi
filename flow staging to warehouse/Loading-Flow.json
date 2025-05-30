@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1748569558924,
+    "description" : "this flow is used to load the transformed data into the dimensions and facts in the warehouse.",
+    "identifier" : "Loading-Flow",
+    "lastModifiedTimestamp" : 1748569558924,
+    "name" : "Loading Flow",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
