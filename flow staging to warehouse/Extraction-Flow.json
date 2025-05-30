@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1748569289118,
+    "description" : "this flow is used to extract data from staging to warehouse. It initial load.",
+    "identifier" : "Extraction-Flow",
+    "lastModifiedTimestamp" : 1748569289118,
+    "name" : "Extraction Flow",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
