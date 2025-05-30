@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1748570231404,
+    "description" : "this flow is used to transform data for incremental load pipeline",
+    "identifier" : "Transfrom-Data-Flow",
+    "lastModifiedTimestamp" : 1748570231404,
+    "name" : "Transfrom Data Flow",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
