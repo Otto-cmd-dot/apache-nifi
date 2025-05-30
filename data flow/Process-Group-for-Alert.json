@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1748570083538,
+    "description" : "This process group accepts incoming FlowFiles and send an email",
+    "identifier" : "Process-Group-for-Alert",
+    "lastModifiedTimestamp" : 1748570083538,
+    "name" : "Process Group for Alert",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
